@@ -5,8 +5,10 @@ from urlparse import urlparse
 import os
 import urllib
 
-
+# NOTE: change this variable to an RSS feed on Imgur
 imgur_rss_url = 'https://imgur.com/r/starwars/rss'
+#####
+
 state = {}
 
 def filename_for_url(url):
@@ -52,14 +54,7 @@ def loop():
         screen.text('Loading...')
         return
     
-    image = state['image']
-    
-    width_sf = 320.0 / image.size[0]
-    height_sf = 240.0 / image.size[1]
-    
-    sf = max(width_sf, height_sf)
-    
-    screen.image(state['image'], scale=sf)
+    screen.image(state['image'])
 
 # run the app
 tingbot.run(loop)
